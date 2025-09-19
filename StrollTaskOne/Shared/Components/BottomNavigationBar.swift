@@ -8,19 +8,35 @@
 import SwiftUI
 
 struct BottomNavigationBar: View {
+
+    @Binding var selectedPage: BottomNavigationItemType
+
     var body: some View {
         VStack(spacing: 0) {
             Rectangle()
-                    .frame(height: 1)
-                    .foregroundColor(.borderBlack)
+                .frame(height: 1)
+                .foregroundColor(.borderBlack)
             HStack(alignment: .top, spacing: 0) {
-                BottomNavigationItem(notificationCount: 10, itemType: .cards)
+                BottomNavigationItem(
+                    isActive: selectedPage == .cards,
+                    notificationCount: 10,
+                    itemType: .cards
+                )
                 Spacer()
-                BottomNavigationItem(itemType: .bonfire)
+                BottomNavigationItem(
+                    isActive: selectedPage == .bonfire,
+                    itemType: .bonfire
+                )
                 Spacer()
-                BottomNavigationItem(itemType: .chat)
+                BottomNavigationItem(
+                    isActive: selectedPage == .chat,
+                    itemType: .chat
+                )
                 Spacer()
-                BottomNavigationItem(itemType: .profile(image: "imgProfile"))
+                BottomNavigationItem(
+                    isActive: selectedPage == .profile(image: "imgProfile"),
+                    itemType: .profile(image: "imgProfile")
+                )
             }
             .padding(.horizontal, 15)
             .padding(.top, 3)
@@ -30,7 +46,7 @@ struct BottomNavigationBar: View {
     }
 }
 
-enum BottomNavigationItemType {
+enum BottomNavigationItemType: Equatable {
     case cards
     case bonfire
     case chat
@@ -59,7 +75,7 @@ struct BottomNavigationItem: View {
             Image(image)
                 .padding(2)
                 .background {
-                    Image("icCircularStrokeActive")
+                    Image(isActive ? "icCircularStrokeActive" : "icCircularStrokeDisabled")
 
                 }
         }
@@ -99,11 +115,7 @@ struct BottomNavigationItem: View {
                     )
 
             }
-            
-            
-    
 
-                
         }
         .padding(.top, 8)
         .frame(minWidth: 38, maxHeight: 45)
@@ -111,5 +123,7 @@ struct BottomNavigationItem: View {
 }
 
 #Preview {
-    BottomNavigationBar().background(.black)
+    BottomNavigationBar(
+        selectedPage: .constant(.chat)
+    ).background(.black)
 }
