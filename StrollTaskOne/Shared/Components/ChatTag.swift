@@ -27,6 +27,8 @@ struct ChatTag: View {
                 Text("New Chat")
                     .font(.system(size: 10, weight: .semibold))
                     .foregroundColor(.white)
+                    .lineLimit(1)  // force single line
+                    .truncationMode(.tail)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 2)
