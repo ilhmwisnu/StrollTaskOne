@@ -42,7 +42,7 @@ struct BottomNavigationBar: View {
             .padding(.top, 3)
             Spacer()
         }
-        .frame(height: 80)
+        .frame(height: 64)
     }
 }
 

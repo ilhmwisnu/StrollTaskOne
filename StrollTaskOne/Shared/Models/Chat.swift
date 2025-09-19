@@ -27,12 +27,10 @@ enum ChatContent: Equatable {
 
 struct TextMessage {
     var message: String
-    var sendAt: Date         
 }
 
 struct VoiceMessage {
     var voiceMessageDuration: Int
-    var sendAt: Date
 }
 
 extension Chat {
@@ -43,7 +41,7 @@ extension Chat {
             isUser: isUser,
             sendAt: sendAt,
             content: .text,
-            textMessage: TextMessage(message: message, sendAt: sendAt),
+            textMessage: TextMessage(message: message),
             voiceMessage: nil
         )
     }
@@ -56,7 +54,7 @@ extension Chat {
             sendAt: sendAt,
             content: .voice,
             textMessage: nil,
-            voiceMessage: VoiceMessage(voiceMessageDuration: seconds, sendAt: sendAt)
+            voiceMessage: VoiceMessage(voiceMessageDuration: seconds)
         )
     }
 }

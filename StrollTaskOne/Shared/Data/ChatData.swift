@@ -18,25 +18,24 @@ let chatRooms: [ChatRoom] = [
         chats: [
             Chat(
                 isUser: false,
-                sendAt: now.addingTimeInterval(-5 * 60), // 5m ago
+                sendAt: now.addingTimeInterval(-5 * 60),  // 5m ago
                 content: .voice,
-                voiceMessage: VoiceMessage(voiceMessageDuration: 58, sendAt: now.addingTimeInterval(-5 * 60))
-            ),
+                voiceMessage: VoiceMessage(voiceMessageDuration: 58)
+            )
         ]
     ),
     ChatRoom(
-        isUserMove: false,
+        isUserMove: true,
         name: "Amanda",
         imagePath: "imgUserA",
-        isOpened: true,
+        isOpened: false,
         chats: [
             Chat(
                 isUser: false,
-                sendAt: now.addingTimeInterval(-2 * 24 * 60 * 60), // 2d ago
+                sendAt: now.addingTimeInterval(-45 * 60),  // 45m ago
                 content: .text,
                 textMessage: TextMessage(
                     message: "Lol I love house music too",
-                    sendAt: now.addingTimeInterval(-2 * 24 * 60 * 60)
                 ),
                 voiceMessage: nil
             )
@@ -46,15 +45,14 @@ let chatRooms: [ChatRoom] = [
         isUserMove: false,
         name: "Sila",
         imagePath: "imgChatB",
-        isOpened: false,
+        isOpened: true,
         chats: [
             Chat(
                 isUser: true,
-                sendAt: now.addingTimeInterval(-45 * 60), // 45m ago
+                sendAt: now.addingTimeInterval(-2 * 24 * 60 * 60),  // 2d ago
                 content: .text,
                 textMessage: TextMessage(
                     message: "I love the people there tbh, have you been?",
-                    sendAt: now.addingTimeInterval(-45 * 60)
                 ),
                 voiceMessage: nil
             )
@@ -68,43 +66,44 @@ let chatRooms: [ChatRoom] = [
         chats: [
             Chat(
                 isUser: true,
-                sendAt: now.addingTimeInterval(-4 * 60 * 60), // 4h ago
+                sendAt: now.addingTimeInterval(-4 * 60 * 60),  // 4h ago
                 content: .voice,
                 textMessage: nil,
                 voiceMessage: VoiceMessage(
                     voiceMessageDuration: 42,
-                    sendAt: now.addingTimeInterval(-4 * 60 * 60)
+
                 )
-            ),Chat(
+            ),
+            Chat(
                 isUser: true,
-                sendAt: now.addingTimeInterval(-4 * 60 * 60), // 4h ago
+                sendAt: now.addingTimeInterval(-4 * 60 * 60),  // 4h ago
                 content: .voice,
                 textMessage: nil,
                 voiceMessage: VoiceMessage(
                     voiceMessageDuration: 42,
-                    sendAt: now.addingTimeInterval(-4 * 60 * 60)
                 )
-            ),Chat(
+            ),
+            Chat(
                 isUser: true,
-                sendAt: now.addingTimeInterval(-4 * 60 * 60), // 4h ago
+                sendAt: now.addingTimeInterval(-4 * 60 * 60),  // 4h ago
                 content: .voice,
                 textMessage: nil,
                 voiceMessage: VoiceMessage(
                     voiceMessageDuration: 42,
-                    sendAt: now.addingTimeInterval(-4 * 60 * 60)
+
                 )
             ),
             Chat(
                 isUser: false,
-                sendAt: now.addingTimeInterval(-3 * 60 * 60 + -30 * 60), // 3h30m ago
+                sendAt: now.addingTimeInterval(-3 * 60 * 60 + -30 * 60),  // 3h30m ago
                 content: .text,
                 textMessage: TextMessage(
-                    message: "Hahaha that’s interesting, it does seem like people here are starting to like house music more",
-                    sendAt: now.addingTimeInterval(-3 * 60 * 60 + -30 * 60)
+                    message:
+                        "Hahaha that’s interesting, it does seem like people here are starting to like house music more",
                 ),
                 voiceMessage: nil
-            )
-            
+            ),
+
         ]
     ),
     ChatRoom(
@@ -115,10 +114,12 @@ let chatRooms: [ChatRoom] = [
         chats: [
             Chat(
                 isUser: false,
-                sendAt: now.addingTimeInterval(-5 * 60), // 5m ago
+                sendAt: now.addingTimeInterval(-5 * 60),  // 5m ago
                 content: .voice,
-                voiceMessage: VoiceMessage(voiceMessageDuration: 54, sendAt: now.addingTimeInterval(-5 * 60))
-            ),
+                voiceMessage: VoiceMessage(
+                    voiceMessageDuration: 54
+                )
+            )
         ]
     ),
 ]
@@ -126,9 +127,9 @@ let chatRooms: [ChatRoom] = [
 #Preview {
     VStack(spacing: 0) {
         ForEach(chatRooms) { room in
-            ChatTile(data: room).background(.backgroundBlack)
+            ChatTile(data: room)
         }
     }
-    
+    .background(.backgroundBlack)
 
 }
