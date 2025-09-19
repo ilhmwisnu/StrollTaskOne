@@ -52,15 +52,16 @@ struct MatchesView: View {
                             VStack {
                                 Text("Pending View")
                                     .padding(20)
+                                    .foregroundColor(.textWhite)
                             }
                         }
                     }
-                    .foregroundColor(.textWhite)
                     .transition(
                         .move(edge: .trailing)
                         .combined(with: .opacity)
                     )
                     .animation(.spring(), value: selectedTab)
+                    .padding(.bottom, 40)
                 }
 
             }

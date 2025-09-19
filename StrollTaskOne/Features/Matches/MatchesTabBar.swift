@@ -58,7 +58,7 @@ struct MatchesTabBar: View {
             }
         } label: {
             Text(title)
-                .foregroundColor(.white)
+                .foregroundColor( isSelected ?.white : .textDisabled)
                 .font(.system(size: 22, weight: .bold))
         }
         .buttonStyle(.plain)

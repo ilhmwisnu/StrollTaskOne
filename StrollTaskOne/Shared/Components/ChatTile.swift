@@ -23,10 +23,10 @@ struct ChatTile: View {
         if lastMessage.content == .text {
             Text(
                 lastMessage.isUser
-                    ? "You:\(lastMessage.textMessage!.message)"
+                    ? "You: \(lastMessage.textMessage!.message)"
                     : lastMessage.textMessage!.message
             )
-            .font(.system(size: 14, weight: .semibold))
+            .font(.system(size: 14, weight: data.isOpened ? .regular : .semibold))
             .foregroundColor(lastMessage.isUser ? .textChat : .textWhite)
             .lineLimit(2)
         } else {
@@ -73,7 +73,11 @@ struct ChatTile: View {
                             }
 
                         }
-                        lastMessageView
+                        HStack {
+                            lastMessageView
+                            Spacer(minLength: 0)
+                        }
+                            
                     }
                     Spacer()
                     VStack(alignment: .trailing, spacing: 5) {
@@ -110,7 +114,8 @@ struct ChatTile: View {
 #Preview {
     VStack(spacing: 0) {
         ForEach(chatRooms) { room in
-            ChatTile(data: room).background(.backgroundBlack)
+            ChatTile(data: room)
+                .background(.backgroundBlack)
         }
     }
 

@@ -31,6 +31,7 @@ struct MatchesHeader: View {
                 Text("Make your move, they are waiting 🎵")
                     .font(.system(size: 12))
                     .foregroundColor(.textLightGrey)
+                    .italic()
             }
             Spacer()
             Rep(value: rep)
