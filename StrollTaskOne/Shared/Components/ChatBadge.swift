@@ -23,5 +23,5 @@ struct ChatBadge: View {
 }
 
 #Preview {
-    ChatBadge()
+    ChatBadge(label: "1")
 }
