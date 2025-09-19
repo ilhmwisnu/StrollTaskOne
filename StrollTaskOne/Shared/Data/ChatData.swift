@@ -25,7 +25,7 @@ let chatRooms: [ChatRoom] = [
         ]
     ),
     ChatRoom(
-        isUserMove: false,
+        isUserMove: true,
         name: "Amanda",
         imagePath: "imgUserA",
         isOpened: true,
